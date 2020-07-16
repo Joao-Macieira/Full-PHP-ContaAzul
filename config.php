@@ -5,13 +5,13 @@ require "environment.php";
 $config = array();
 
 if(ENVIRONMENT == 'development'){
-    define("BASE_URL", "http://projetox.pc/");
+    define("BASE_URL", "http://projetoy.pc/");
     $config['dbname'] = 'ead';
     $config['host']  = 'localhost';
     $config['dbuser']  = 'root';
     $config['dbpass'] = 'Mtech2020begin!';
 } else {
-    #Dados do banco de ados do servidor
+    #Dados do banco de dados do servidor
     define("BASE_URL", "http://meusite.com.br/");
     $config['dbname'] = 'ead';
     $config['host']  = 'localhost';

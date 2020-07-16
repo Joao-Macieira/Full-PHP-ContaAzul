@@ -1,4 +1,5 @@
 <?php
+session_name('lgaluno');
 session_start();
 
 require "config.php";
