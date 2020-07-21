@@ -45,4 +45,18 @@ class Cursos extends model {
         return $this->info['descricao'];
     }
 
+    public function getId() {
+        return $this->info['id'];
+    }
+
+    public function getTotalAulas() {
+
+        $sql = "SELECT id FROM aulas WHERE id_curso = :id_curso";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":id_curso", $this->getId());
+        $sql->execute();
+        
+        return $sql->rowCount();
+    }
+
 }

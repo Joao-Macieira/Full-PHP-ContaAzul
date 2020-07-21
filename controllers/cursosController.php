@@ -32,6 +32,9 @@ class cursosController extends controller {
             $curso->setCurso($id);
             $dados['curso'] = $curso;
 
+            $dados['aulas_assistidas'] = $alunos->getNumAulasAssistidas($id);
+            $dados['total_aulas'] = $curso->getTotalAulas();
+
             $modulos =  new Modulos();
             $dados['modulos'] = $modulos->getModulos($id);
 
@@ -63,6 +66,9 @@ class cursosController extends controller {
             $modulos =  new Modulos();
             $dados['modulos'] = $modulos->getModulos($id);
 
+            $dados['aulas_assistidas'] = $alunos->getNumAulasAssistidas($id);
+            $dados['total_aulas'] = $curso->getTotalAulas();
+
             $dados['aula_info'] = $aula->getAula($id_aula);
 
             if($dados['aula_info']['tipo'] == 'video') {
@@ -87,6 +93,7 @@ class cursosController extends controller {
 
                 if ($opcao == $dados['aula_info']['resposta']) {
                     $dados['resposta'] = true;
+                    $aula->marcarAssistido($id_aula);
                 } else {
                     $dados['resposta'] = false;
                 }

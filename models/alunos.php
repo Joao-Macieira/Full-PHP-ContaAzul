@@ -70,4 +70,15 @@ class Alunos extends model {
         return $this->info['id'];
     }
 
+    public function getNumAulasAssistidas($id_curso) {
+
+        $sql = "SELECT id FROM historico WHERE id_aluno = :id_aluno AND id_aula IN (select aulas.id from aulas where aulas.id_curso = :id_curso)";
+        $sql = $this->pdo->prepare($sql);
+        $sql -> bindValue(":id_aluno", $this->getId());
+        $sql -> bindValue(":id_curso", $id_curso);
+        $sql -> execute();
+
+        return $sql->rowCount();
+    }
+
 }

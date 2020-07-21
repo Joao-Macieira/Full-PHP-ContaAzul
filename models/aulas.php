@@ -14,6 +14,7 @@ class Aulas extends model {
 
     public function getAulasDeModulo($id) {
         $array = array();
+        $aluno = $_SESSION['lgaluno'];
 
         $sql = "SELECT * FROM aulas WHERE id_modulo = :id ORDER BY ordem";
         $sql = $this->pdo->prepare($sql);
@@ -24,6 +25,7 @@ class Aulas extends model {
             $array = $sql->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($array as $aulaChave => $aula) {
+                $array[$aulaChave]['assistido'] = $this->isAssistido($aula['id'], $aluno);
 
                 if($aula['tipo'] == 'video') {
                     $sql = "SELECT nome FROM videos WHERE id_aula = :id";
@@ -118,6 +120,22 @@ class Aulas extends model {
         $sql->bindValue(":duvida", $duvida);
         $sql->bindValue(":id", $aluno);
         $sql->execute();
+    }
+
+    private function isAssistido($id_aula, $id_aluno) {
+
+        $sql = "SELECT id FROM historico WHERE id_aluno = :id_aluno AND id_aula = :id_aula";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":id_aluno", $id_aluno);
+        $sql->bindValue(":id_aula", $id_aula);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            return true; 
+        } else {
+            return false;
+        }
+
     }
 
 }
