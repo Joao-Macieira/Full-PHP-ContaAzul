@@ -8,11 +8,11 @@ class loginController extends controller {
 
         if(isset($_POST['email']) && !empty($_POST['email'])) {
             $email = addslashes($_POST['email']);
-            $senha = addslashes($_POST['senha']);
+            $senha = md5($_POST['senha']);
 
-            $alunos = new Alunos();
+            $usuarios = new Usuarios();
 
-            if($alunos->fazerLogin($email, $senha)) {
+            if($usuarios->fazerLogin($email, $senha)) {
                 header("Location: ".BASE_URL);
             }
             
@@ -21,7 +21,7 @@ class loginController extends controller {
     } 
 
     public function logout() {
-        unset($_SESSION['lgaluno']);
+        unset($_SESSION['lgadmin']);
         header("location: ".BASE_URL);
     }
 }

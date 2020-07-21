@@ -15,23 +15,37 @@ class Alunos extends model {
 
     public function fazerLogin($email, $senha) {
 
-        $sql = "SELECT * FROM alunos WHERE email = :email AND senha = :senha";
+        $sql = "SELECT * FROM alunos WHERE email = :email";
         $sql = $this->pdo->prepare($sql);
         $sql->bindValue(":email", $email);
-        $sql->bindValue(":senha", $senha);
         $sql->execute();
 
         if($sql->rowCount() > 0) {
-
-          
             $row = $sql->fetch(PDO::FETCH_ASSOC);
       
-
-            $_SESSION['lgaluno'] = $row['id'];
-			return true;
+            if(password_verify($senha, $row['senha'])) {
+                $_SESSION['lgaluno'] = $row['id'];
+			    return true;
+            }
 		}
 
 		return false;
+
+    }
+
+    public function isInscrito($id_curso) {
+
+        $sql = "SELECT * FROM aluno_curso WHERE id_aluno = :id_aluno AND id_curso = :id_curso";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":id_aluno", $this->info['id']);
+        $sql->bindValue(':id_curso', $id_curso);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 

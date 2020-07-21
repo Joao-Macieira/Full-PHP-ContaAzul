@@ -45,3 +45,62 @@ body {
     border-radius: 10px;
     text-align: center;
 }
+
+.cursoinfo {
+    height: 80px;
+    background-color: #CCC;
+}
+
+.cursoinfo img {
+    float: left;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.cursoinfo h3 {
+    margin: 0;
+    padding-top: 10px;
+}
+
+.curso_left {
+    width: 30%;
+    min-height: 300px;
+    float: left;
+    background-color: #DDD;
+    overflow-y: scroll;
+}
+
+.curso_left a {
+    color: #000;
+    text-decoration: none;
+}
+
+.curso_rigth {
+    width: 70%;
+    min-height: 300px;
+    float: left;
+    overflow-y: scroll;
+}
+
+.modulo {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 20px;
+    background-color: #BBB;
+}
+
+.aula {
+    height: 30px;
+    line-height: 30px;
+    padding-left:30px;
+}
+
+.aula:hover {
+    background-color: #AAA;
+}
+
+.form_duvida textarea {
+    width: 99%;
+    height: 150px;
+}
