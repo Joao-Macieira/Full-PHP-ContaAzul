@@ -8,12 +8,17 @@
 </head>
 <body>
     <div class="topo">
+        
         <a href="<?php echo BASE_URL; ?>/login/logout">
             <div>Sair</div>
+        </a>
+        <a href="<?php echo BASE_URL; ?>">
+            <div>Home</div>
         </a>
         <div class="topousuario">
            Olá <?php echo $viewData['info']->getNome(); ?>
         </div>
+
     </div>
 
 

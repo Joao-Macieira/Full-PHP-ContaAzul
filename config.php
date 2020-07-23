@@ -6,7 +6,7 @@ $config = array();
 
 if(ENVIRONMENT == 'development'){
     define("BASE_URL", "http://projetoy.pc/");
-    $config['dbname'] = 'ead';
+    $config['dbname'] = 'contaazul';
     $config['host']  = 'localhost';
     $config['dbuser']  = 'root';
     $config['dbpass'] = 'Mtech2020begin!';
