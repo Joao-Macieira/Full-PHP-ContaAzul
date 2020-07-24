@@ -3,25 +3,29 @@
 class loginController extends controller {
 
     public function index(){
-        $array = array();
+        $data = array();
 
 
         if(isset($_POST['email']) && !empty($_POST['email'])) {
-            $email = addslashes($_POST['email']);
-            $senha = addslashes($_POST['senha']);
+            $email = filter_input(INPUT_POST, 'email');
+            $pass = filter_input(INPUT_POST, 'password');
 
-            $alunos = new Alunos();
+            $u = new Users();
 
-            if($alunos->fazerLogin($email, $senha)) {
+            if($u->doLogin($email, $pass)) {
                 header("Location: ".BASE_URL);
+                exit;
+            } else {
+                $data['error'] = 'E-mail e/ou senha incorretos.';
             }
             
         }
-        $this->loadView("login", $array);
+        $this->loadView("login", $data);
     } 
 
     public function logout() {
-        unset($_SESSION['lgaluno']);
-        header("location: ".BASE_URL);
+        $u = new Users();
+        $u->logout();
+        header("location: ".BASE_URL);        
     }
 }

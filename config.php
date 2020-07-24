@@ -13,7 +13,7 @@ if(ENVIRONMENT == 'development'){
 } else {
     #Dados do banco de dados do servidor
     define("BASE_URL", "http://meusite.com.br/");
-    $config['dbname'] = 'ead';
+    $config['dbname'] = 'contaazul';
     $config['host']  = 'localhost';
     $config['dbuser']  = 'root';
     $config['dbpass'] = 'Mtech2020begin!';
