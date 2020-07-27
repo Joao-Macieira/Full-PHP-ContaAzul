@@ -45,4 +45,107 @@ class Permissions extends model {
         }
     }
 
+    public function getList($id_company) {
+        $array = array();
+
+        $sql = "SELECT * FROM permission_params WHERE id_company = :id_company";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $array = $sql->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        return $array;
+    }
+
+    public function getGroupList($id_company) {
+        $array = array();
+
+        $sql = "SELECT * FROM permission_groups WHERE id_company = :id_company";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+
+        if($sql -> rowCount() > 0) {
+            $array = $sql->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        return $array;
+    }
+
+    public function getGroup($id, $id_company) {     
+        $array = array();
+
+        $sql = "SELECT * FROM permission_groups WHERE id = :id AND id_company = :id_company";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":id", $id);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+
+        if($sql -> rowCount() > 0) {
+            $array = $sql->fetch(PDO::FETCH_ASSOC);
+            $array['params'] = explode(",", $array['params']);
+        }
+
+        return $array;
+    }
+
+    public function add($name, $id_company) {
+
+        $sql = "INSERT INTO permission_params (name, id_company) VALUES (:name, :id_company)";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":name", $name);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+
+    }
+
+    public function addGroup($name, $plist, $id_company) {
+
+        $params = implode(',', $plist);
+
+        $sql = "INSERT INTO permission_groups (name, id_company, params) VALUES (:name, :id_company, :params)";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":name", $name);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->bindValue(":params", $params);
+        $sql->execute();
+
+    }
+
+    public function delete($id) {
+
+        $sql = "DELETE FROM permission_params WHERE id = :id";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+    }
+
+    public function deleteGroup($id) {
+        $u = new Users();
+
+        if($u->findUsersInGroup($id) == false){
+            $sql = "DELETE FROM permission_groups WHERE id = :id";
+            $sql = $this->pdo->prepare($sql);
+            $sql->bindValue(":id", $id);
+            $sql->execute();
+        }
+    }
+
+    public function editGroup($name, $plist, $id, $id_company) {
+        $params = implode(',', $plist);
+
+        $sql = "UPDATE permission_groups SET name = :name, id_company = :id_company, params = :params WHERE id = :id";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":name", $name);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->bindValue(":params", $params);
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+    }
+
 }

@@ -84,8 +84,16 @@ body {
     background-image: url('../images/key.png');
 }
 
+.menuarea li:nth-child(3) {
+    background-image: url('../images/users.png');
+}
+
 .area {
     padding: 15px;
+}
+
+.tabarea {
+    height: 40px;
 }
 
 .tabitem {
@@ -106,4 +114,90 @@ body {
 
 .tabbody {
     display: none;
+    padding-top: 20px;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+select {
+    height: 30px;
+    font-size: 13px;
+    outline: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+input[type=submit],
+button,
+.button {
+    border: 0;
+    background-color: #224074;
+    color: #FFF;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    display: inline-block;
+}
+
+.button_small {
+    height: 30px;
+    line-height: 30px;
+}
+
+.button_excluir {
+    height: 30px;
+    line-height: 30px;
+    background-color: #F00;
+}
+
+.button a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+table {
+    margin-top: 10px;
+}
+
+table th {
+    height: 40px;
+    line-height: 40px;
+    font-size: 17px;
+    background-color: #DDD;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+table td {
+    height: 40px;
+    line-height: 40px;
+    background-color: #EEE;
+    font-size: 15px;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.p_item {
+    height: 25px;
+    line-height: 25px;
+}
+
+.warn {
+    padding: 15px;
+    background-color: rgba(255, 0, 0, 0.514);
+    border: 2px solid #F00;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 16px;
 }
