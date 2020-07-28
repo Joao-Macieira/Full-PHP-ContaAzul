@@ -88,6 +88,9 @@ body {
     background-image: url('../images/users.png');
 }
 
+.menuarea li:nth-child(4) {
+    background-image: url('../images/clients.png');
+}
 .area {
     padding: 15px;
 }
@@ -120,6 +123,8 @@ body {
 input[type=text],
 input[type=email],
 input[type=password],
+input[type=tel],
+textarea,
 select {
     height: 30px;
     font-size: 13px;
@@ -128,6 +133,11 @@ select {
     padding-right: 5px;
     width: 100%;
     margin-top: 5px;
+}
+
+textarea{
+    height: 100px;
+    border: 1px solid #CCC;
 }
 
 input[type=submit],
