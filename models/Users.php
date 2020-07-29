@@ -76,6 +76,14 @@ class Users extends model {
         }
     }
 
+    public function getId() {
+        if (isset($this->userInfo['id'])) {
+            return $this->userInfo['id'];
+        } else {
+            return 0;
+        }
+    }
+
     public function getInfo($id, $id_company) {
         $array = array();
 

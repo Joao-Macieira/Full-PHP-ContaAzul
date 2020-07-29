@@ -18,6 +18,7 @@
                 <li><a href="<?php echo BASE_URL; ?>permissions">Permissões</a></li>
                 <li><a href="<?php echo BASE_URL; ?>users">Usuários</a></li>
                 <li><a href="<?php echo BASE_URL; ?>clients">Clientes</a></li>
+                <li><a href="<?php echo BASE_URL; ?>inventory">Estoque</a></li>
             </ul>
         </div>
     </div>
@@ -40,7 +41,10 @@
        
 
     <script src="<?php echo BASE_URL; ?>/assets/js/jquery-3.5.1.min.js"></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/jquery.mask.js"></script>
+    <script> var BASE_URL = '<?php echo BASE_URL; ?>'; </script>
     <script src="<?php echo BASE_URL; ?>/assets/js/script.js"></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/script_inventory_add.js"></script>
     <script src="<?php echo BASE_URL; ?>assets/js/script_clients_add.js"></script>
 </body>
 </html>
