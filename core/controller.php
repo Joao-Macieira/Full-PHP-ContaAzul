@@ -1,6 +1,6 @@
 <?php
 
-class controller {
+class Controller {
 
     public function loadView($viewName, $viewData = array()){
         #pega os indices do array e transforma em várias, mantendo seu valor
@@ -20,8 +20,11 @@ class controller {
         require 'views/'.$viewName.'.php';
     }
 
-
-
+    public function loadLibrary($lib) {
+        if(file_exists('vendor/'.$lib.'.php')){
+            include 'vendor/'.$lib.'.php';
+        }
+    }
 }
 
 

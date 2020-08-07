@@ -1,6 +1,6 @@
 <?php
 
-class clientsController extends controller {
+class clientsController extends Controller {
 
     public function  __construct(){
         $u = new Users();

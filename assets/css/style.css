@@ -96,6 +96,18 @@ body {
     background-image: url('../images/inventory.png');
 }
 
+.menuarea li:nth-child(6) {
+    background-image: url('../images/sales.png');
+}
+
+.menuarea li:nth-child(7) {
+    background-image: url('../images/purchases.png');
+}
+
+.menuarea li:nth-child(8) {
+    background-image: url('../images/reports.png');
+}
+
 .area {
     padding: 15px;
 }
@@ -279,4 +291,120 @@ table td {
 
 .si:hover {
     background-color: #EEE;
+}
+
+#client_name {
+    width: 293px;
+    float: left;
+}
+
+.client_add_button {
+    font-size: 20px;
+    height: 30px;
+    line-height: 26px;
+    display: block;
+    float: left;
+    margin-top: 8px;
+    margin-left: 10px;
+}
+
+.report_item{
+    width: 150px;
+    height: 140px;
+    background-color: #CCC;
+    float: left;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    font-size: 17px;
+}
+
+.report_item a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+}
+
+.report-grid-4{
+    width: 25%;
+    height: 150px;
+    float: left;
+    text-align: center;
+}
+
+.p_quant{
+    width: 40px !important;
+}
+
+.grid-1{
+    width: 33.3%;
+    float: left;
+}
+
+.grid-2 {
+    width: 66.67%;
+    float: left;
+}
+
+.grid-3 {
+    width: 100%;
+    float: left;
+}
+
+.db-grid-area{
+    background-color: #CCC;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 100px;
+    padding-left: 20px;
+}
+
+.row1 .grid-1:nth-child(1) .db-grid-area {
+    margin-left: 0;
+}
+
+.row1 .grid-1:nth-child(3) .db-grid-area {
+    margin-right: 0;
+}
+
+.row2 .grid-2:nth-child(1) .db-info {
+    margin-left: 0;
+}
+
+.row2 .grid-1 .db-info {
+    margin-right: 0;
+}
+
+.db-grid-area-count {
+    font-size: 28px;
+    padding-top: 24px;
+}
+
+.db-grid-area-legend {
+    font-size: 18px;
+}
+
+.db-row {
+    clear: both;
+}
+
+.db-info{
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    background-color: #FFF;
+}
+
+.db-info-title {
+    height: 40px;
+    line-height: 40px;
+    font-size: 17px;
+    padding-left: 10px;
+    border-bottom: 1px solid #CCC;
+}
+
+.db-info-body {
+    padding: 10px;
 }

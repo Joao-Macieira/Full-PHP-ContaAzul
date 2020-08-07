@@ -16,7 +16,7 @@
     <?php foreach($inventory_list as $product): ?>
         <tr>
             <td><?php echo $product['name']; ?></td>
-            <td>R$ <?php echo number_format($product['price'], 2); ?></td>
+            <td>R$ <?php echo number_format($product['price'], 2,',','.'); ?></td>
             <td width = '100' style="text-align: center;"><?php if($product['min_quant'] > $product['quant']){echo '<span style="color:red">'.$product['quant'].'</span>';} else { echo '<span style="color:green">'.$product['quant'].'</span>'; }?></td>
             <td width = '160' style="text-align: center;"><?php echo $product['min_quant']; ?></td>
             <td width = '160'>

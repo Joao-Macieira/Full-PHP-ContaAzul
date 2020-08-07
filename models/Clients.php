@@ -1,6 +1,6 @@
 <?php
 
-class Clients extends model {
+class Clients extends Model {
 
 
     public function getList($offset, $id_company) {
@@ -64,7 +64,7 @@ class Clients extends model {
         return $array;
     }
 
-    public function add($id_company, $name, $email, $phone, $star, $internal_obs, $address_zipcode, $address, $address_number, $address2, $address_neighb, $address_city, $address_state, $address_country) {
+    public function add($id_company, $name, $email ='', $phone='', $star='3', $internal_obs='', $address_zipcode='', $address='', $address_number='', $address2='', $address_neighb='', $address_city='', $address_state='', $address_country='') {
 
         $sql = "INSERT INTO clients SET id_company = :id_company, name = :name, email = :email, phone = :phone, stars = :stars, internal_obs = :internal_obs, address_zipcode = :address_zipcode, address = :address, address_number = :address_number, address2 = :address2, address_city = :address_city, address_state = :address_state, address_country = :address_country, address_neighb = :address_neighb";
         $sql = $this->pdo->prepare($sql);
@@ -84,6 +84,7 @@ class Clients extends model {
         $sql->bindValue(':address_neighb', $address_neighb);
         $sql->execute();
 
+        return $this->pdo->lastInsertId();
     }
 
     public function edit($id, $id_company, $name, $email, $phone, $star, $internal_obs, $address_zipcode, $address, $address_number, $address2, $address_neighb, $address_city, $address_state, $address_country) {

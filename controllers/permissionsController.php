@@ -1,6 +1,6 @@
 <?php
 
-class permissionsController extends controller {
+class permissionsController extends Controller {
 
     public function  __construct(){
         $u = new Users();

@@ -1,6 +1,6 @@
 <?php
 
-class Permissions extends model {
+class Permissions extends Model {
 
     private $group;
     private $permissions;

@@ -19,6 +19,9 @@
                 <li><a href="<?php echo BASE_URL; ?>users">Usuários</a></li>
                 <li><a href="<?php echo BASE_URL; ?>clients">Clientes</a></li>
                 <li><a href="<?php echo BASE_URL; ?>inventory">Estoque</a></li>
+                <li><a href="<?php echo BASE_URL; ?>sales">Vendas</a></li>
+                <li><a href="<?php echo BASE_URL; ?>purchase">Compras</a></li>
+                <li><a href="<?php echo BASE_URL; ?>report">Relatórios</a></li>
             </ul>
         </div>
     </div>
@@ -45,6 +48,11 @@
     <script> var BASE_URL = '<?php echo BASE_URL; ?>'; </script>
     <script src="<?php echo BASE_URL; ?>/assets/js/script.js"></script>
     <script src="<?php echo BASE_URL; ?>/assets/js/script_inventory_add.js"></script>
-    <script src="<?php echo BASE_URL; ?>assets/js/script_clients_add.js"></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/script_clients_add.js"></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/script_sales_add.js"></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/script_purchase_add.js"></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/report.js"></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/Chart.min.js"></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/script_home.js"></script>
 </body>
 </html>

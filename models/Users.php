@@ -1,6 +1,6 @@
 <?php
 
-class Users extends model {
+class Users extends Model {
 
     private $userInfo;
     private $permissions;
@@ -121,6 +121,23 @@ class Users extends model {
 
         $sql = "SELECT users.id, users.email, permission_groups.name FROM users LEFT JOIN permission_groups ON permission_groups.id = users.id_group WHERE users.id_company = :id_company";
         $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $array = $sql->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        return $array;
+    }
+
+    public function searchUserByEmail($id_company){
+        $array = array();
+        $id = $this->userInfo['id'];
+
+        $sql = 'SELECT email FROM users WHERE id_company = :id_company AND id = :id LIMIT 10';
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":id", $id);
         $sql->bindValue(":id_company", $id_company);
         $sql->execute();
 
